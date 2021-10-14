@@ -1,3 +1,4 @@
+import { DataSource } from '@angular/cdk/collections';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AfterViewInit, ViewChild } from '@angular/core';
@@ -24,6 +25,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   COPY;
   currentFilter = 'ALL';
   filterText = '';
+  exactFilterFlag = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private playerLoadService: PlayerLoadService) {
@@ -70,15 +72,21 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+    this.resetFilterPredicate();
+    this.exactFilterFlag = false;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // on x click reset
   resetTextFilter() {
     this.filterText = '';
     const filterValue = '';
+    this.resetFilterPredicate();
+    this.exactFilterFlag = false;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // filter the set based on groupsize, if you've clicked on a groupname do EXACT match
   filterSet(size) {
     this.currentFilter = size;
     let filtered = [];
@@ -112,15 +120,50 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     // Incase search text is still in box
     const filterValue = this.filterText;
+
+    if (this.exactFilterFlag) {
+      this.exactFilterPredicate();
+    }
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // if clicked on a groupname
   filterByGroupName(groupName) {
     this.filterText = groupName;
     const filterValue = this.filterText;
+    this.exactFilterPredicate();
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  // basePredicate = this.dataSource.filterPredicate;
+  basePredicate = this.createFilter();
+
+  // if clicked on a groupname, searches exactly that name only to get all members:
+  exactFilterPredicate() {
+    this.exactFilterFlag = true;
     this.dataSource.filterPredicate = function (data, filterValue) {
       return data['groupname'].trim().toLocaleLowerCase() === filterValue;
     };
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  // results back to the base predicate if you change from clicking on a groupname to typing search again
+  resetFilterPredicate() {
+    this.dataSource.filterPredicate = this.basePredicate;
+  }
+
+  // default filter searches rsn and groupname only
+  private createFilter() {
+    let filterFunction = function (data, filter): boolean {
+      if (
+        data['groupname'].toLocaleLowerCase().indexOf(filter) !== -1 ||
+        data['rsn'].toLocaleLowerCase().indexOf(filter) !== -1
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    return filterFunction;
   }
 }

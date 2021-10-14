@@ -1,3 +1,8 @@
+.container, table{
+  min-width: 390px;
+}
+
+
 table {
     width: 100%;
   }
@@ -49,17 +54,34 @@ table {
   width: 5em;
 }
 
+.mat-column-rsn {
+  flex: none;
+  width: 15em;
+}
+
 .mat-column-total{
   flex: none;
   width: 8em;
 }
-
+/* 
 .mat-column-groupname{
   flex: none;
-  width: 12em;
-}
-
-.mat-column-rsn {
-  flex: none;
-  width: 13em;
-}
+} */
+@media screen and (max-width: 767px) {
+  .mat-column-position{
+    width: 10% !important;
+    padding-right: 1em;
+  }
+  .mat-column-groupname{
+    width: 35% !important;
+  }
+  
+  .mat-column-rsn {
+    width: 35% !important;
+  }
+  
+  .mat-column-total{
+    width: 15%;
+  }
+  
+  }
