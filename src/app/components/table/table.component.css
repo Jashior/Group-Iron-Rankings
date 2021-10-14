@@ -2,16 +2,35 @@ table {
     width: 100%;
   }
 
-.heading{
+  .primary{
+    color: var(--color-primary)
+  }
+
+  .text{
+    color: var(--color-offwhite)
+  }
+  .search-text{
+    color: var(--color-offwhite)
+  }
+.center-text{
       text-align: center;
   }
 
+ .right-text{
+    text-align: right;
+  }
 .spinner-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.table-wrapper{
+  /* border: 2px solid var(--color-offwhite) */
+
+  padding: 2px 2px 2px 2px;
+}
 .active{
-    border: 2px orange solid;
+  background-color: var(--color-primary);
+  color: var(--color-background) !important;
 }

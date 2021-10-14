@@ -23,6 +23,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource(this.GIM_DATA);
   COPY;
   currentFilter = 'ALL';
+  filterText = '';
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private playerLoadService: PlayerLoadService) {
@@ -89,8 +90,10 @@ export class TableComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < filtered.length; i++) {
       filtered[i].position = i + 1;
     }
-    console.log(`gim data size: ${filtered.length}`);
     this.dataSource = new MatTableDataSource(filtered);
     this.dataSource.paginator = this.paginator;
+    // Incase search text is still in box
+    const filterValue = this.filterText;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
