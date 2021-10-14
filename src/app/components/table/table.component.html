@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row top-container">
+    <div class="col"></div>
+    <div class="col-6 heading">
+      <br />
+      <h2>GIM Rankings</h2>
+      <br />
+
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Search (rsn or group)</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. ium"
+            #input
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-2">
+          <button
+            mat-stroked-button
+            color="primary"
+            [ngClass]="{ active: currentFilter === 'ALL' }"
+            class="mat-elevation-z2"
+            (click)="filterSet('ALL')"
+          >
+            ALL
+          </button>
+        </div>
+        <div class="col-2">
+          <button
+            mat-stroked-button
+            color="primary"
+            [ngClass]="{ active: currentFilter === '2' }"
+            class="mat-elevation-z2"
+            (click)="filterSet('2')"
+          >
+            2
+          </button>
+        </div>
+        <div class="col-2">
+          <button
+            mat-stroked-button
+            color="primary"
+            [ngClass]="{ active: currentFilter === '3' }"
+            class="mat-elevation-z2"
+            (click)="filterSet('3')"
+          >
+            3
+          </button>
+        </div>
+        <div class="col-2">
+          <button
+            mat-stroked-button
+            color="primary"
+            [ngClass]="{ active: currentFilter === '4' }"
+            class="mat-elevation-z2"
+            (click)="filterSet('4')"
+          >
+            4
+          </button>
+        </div>
+        <div class="col-2">
+          <button
+            mat-stroked-button
+            color="primary"
+            [ngClass]="{ active: currentFilter === '5' }"
+            class="mat-elevation-z2"
+            (click)="filterSet('5')"
+          >
+            5
+          </button>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+
+    <div class="col-3"></div>
+    <div class="row">
+      <br />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 mat-elevation-z8">
+      <div *ngIf="loading" class="spinner-wrapper">
+        <mat-spinner>Loading...</mat-spinner>
+      </div>
+      <table *ngIf="!loading" mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let player">{{ player.position }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="rsn">
+          <th mat-header-cell *matHeaderCellDef>RSN</th>
+          <td mat-cell *matCellDef="let player">{{ player.rsn }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef>Total Level</th>
+          <td mat-cell *matCellDef="let player">{{ player.total }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="groupname">
+          <th mat-header-cell *matHeaderCellDef>Group Name</th>
+          <td mat-cell *matCellDef="let player">{{ player.groupname }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="groupsize">
+          <th mat-header-cell *matHeaderCellDef>Group Size</th>
+          <td mat-cell *matCellDef="let player">{{ player.groupsize }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[10, 25, 100]"
+        showFirstLastButtons
+        aria-label="Select page of players"
+      >
+      </mat-paginator>
+    </div>
+    <div class="col-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6 heading">
+      <br />
+
+      Last updated: {{ GIM_DATA[0].updated_at | date: "medium" }} (UK time)
+      <br />
+      Only included if your group is within the top 3 pages for that groupsize
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

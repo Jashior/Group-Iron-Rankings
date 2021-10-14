@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+  }
+
+.heading{
+      text-align: center;
+  }
+
+.spinner-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active{
+    border: 2px orange solid;
+}
