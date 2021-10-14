@@ -26,6 +26,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   currentFilter = 'ALL';
   filterText = '';
   exactFilterFlag = false;
+  basePredicate;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private playerLoadService: PlayerLoadService) {
@@ -40,7 +41,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       }
       this.COPY = JSON.parse(JSON.stringify(this.GIM_DATA));
       this.dataSource = new MatTableDataSource(this.GIM_DATA);
-
+      this.basePredicate = this.createFilter();
       if (this.GIM_DATA.length > 1260) {
         this.loading = false;
       }
@@ -67,7 +68,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
 
   printer() {
-    console.log(this.GIM_DATA[1]);
+    console.log(`exact filtering: ${this.exactFilterFlag}`);
   }
 
   applyFilter(event: Event) {
@@ -123,6 +124,8 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     if (this.exactFilterFlag) {
       this.exactFilterPredicate();
+    } else {
+      this.resetFilterPredicate();
     }
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -134,9 +137,6 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.exactFilterPredicate();
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-  // basePredicate = this.dataSource.filterPredicate;
-  basePredicate = this.createFilter();
 
   // if clicked on a groupname, searches exactly that name only to get all members:
   exactFilterPredicate() {
