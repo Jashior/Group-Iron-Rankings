@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "just-clone": "^3.2.1",
     "rxjs": "~6.6.0",
+    "time-ago-pipe": "^1.3.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

@@ -38,3 +38,25 @@ table {
   background-color: var(--color-primary);
   color: var(--color-background) !important;
 }
+
+.group-text:hover{
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.mat-column-position{
+  flex: none;
+  width: 5em;
+}
+
+.mat-column-total{
+  flex: none;
+  width: 8em;
+}
+
+
+
+.mat-column-rsn {
+  flex: none;
+  width: 20em;
+}

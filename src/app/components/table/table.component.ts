@@ -83,8 +83,20 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.currentFilter = size;
     let filtered = [];
     if (size == 'ALL') {
+      // add size column if ALL size
+      this.displayedColumns = [
+        'position',
+        'rsn',
+        'total',
+        'groupname',
+        'groupsize',
+      ];
+
       filtered = this.COPY;
     } else {
+      // remove size column if filtered size
+      this.displayedColumns = ['position', 'rsn', 'total', 'groupname'];
+
       let n = Number(size);
       filtered = this.COPY.filter((player) => {
         if (player.groupsize == n) {
@@ -99,6 +111,12 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource(filtered);
     this.dataSource.paginator = this.paginator;
     // Incase search text is still in box
+    const filterValue = this.filterText;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  filterByGroupName(groupName) {
+    this.filterText = groupName;
     const filterValue = this.filterText;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
