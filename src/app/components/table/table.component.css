@@ -19,6 +19,10 @@ table {
  .right-text{
     text-align: right;
   }
+
+  .invisible{
+    display: none;
+  }
 .spinner-wrapper{
     display: flex;
     align-items: center;

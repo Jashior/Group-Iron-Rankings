@@ -39,7 +39,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.COPY = JSON.parse(JSON.stringify(this.GIM_DATA));
       this.dataSource = new MatTableDataSource(this.GIM_DATA);
 
-      if (this.GIM_DATA.length > 750) {
+      if (this.GIM_DATA.length > 1260) {
         this.loading = false;
       }
       this.dataSource.paginator = this.paginator;
@@ -70,6 +70,12 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  resetTextFilter() {
+    this.filterText = '';
+    const filterValue = '';
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 

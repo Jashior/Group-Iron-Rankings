@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row top-container">
-    <div class="col"></div>
+    <div class="col col-lg-3"></div>
     <div class="col-lg-6 col-sm-12 center-text">
       <!-- <br />
       <div class="primary"><h2>GIM Rankings</h2></div>
@@ -18,10 +18,20 @@
             [(ngModel)]="filterText"
             #input
           />
+          <button
+            [ngClass]="{ invisible: filterText.length === 0 }"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            color="primary"
+            (click)="resetTextFilter()"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
         </mat-form-field>
       </div>
     </div>
-    <div class="col"></div>
+    <div class="col col-lg-3"></div>
   </div>
 
   <div class="row">
@@ -154,10 +164,13 @@
     <div class="col-lg-6 col-sm-12 center-text text small">
       <br />
       Last updated:
-      <span class="primary">{{ GIM_DATA[0].updated_at | date: "medium" }}</span>
+      <span class="primary"
+        >~ {{ GIM_DATA[0].updated_at | date: "medium" }}</span
+      >
       (UK time)
       <br />
-      Only included if your group is within the top 3 pages for that groupsize
+      Only included if your group is within the top 5 pages per catergory
+      (within the top 100 groups per group size)
     </div>
     <div class="col"></div>
   </div>
