@@ -118,6 +118,9 @@ export class TableComponent implements OnInit, AfterViewInit {
   filterByGroupName(groupName) {
     this.filterText = groupName;
     const filterValue = this.filterText;
+    this.dataSource.filterPredicate = function (data, filterValue) {
+      return data['groupname'].trim().toLocaleLowerCase() === filterValue;
+    };
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

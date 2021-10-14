@@ -54,9 +54,12 @@ table {
   width: 8em;
 }
 
-
+.mat-column-groupname{
+  flex: none;
+  width: 12em;
+}
 
 .mat-column-rsn {
   flex: none;
-  width: 20em;
+  width: 13em;
 }
