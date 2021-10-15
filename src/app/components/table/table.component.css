@@ -69,19 +69,18 @@ table {
 } */
 @media screen and (max-width: 767px) {
   .mat-column-position{
-    width: 10% !important;
-    padding-right: 1em;
+    width: 15% !important;
   }
   .mat-column-groupname{
-    width: 35% !important;
+    width: 30% !important;
   }
   
   .mat-column-rsn {
-    width: 35% !important;
+    width: 30% !important;
   }
   
   .mat-column-total{
-    width: 15%;
+    width: 10%;
   }
   
   }
