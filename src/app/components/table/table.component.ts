@@ -181,7 +181,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   filterByGroupName(groupName) {
     this.disablePlayerStatsView();
 
-    if (groupName == this.filterText) {
+    if (groupName == this.filterText && this.exactFilterFlag) {
       this.exactFilterFlag = false;
       this.filterText = '';
     } else {
