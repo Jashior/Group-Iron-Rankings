@@ -374,7 +374,11 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [ngClass]="{ active: currentFilter === '2' }"
+            [disabled]="exactFilterFlag == true && currentGroupSize !== 2"
+            [ngClass]="{
+              active: currentFilter === '2',
+              disabled: exactFilterFlag && currentGroupSize !== 2
+            }"
             class="text mat-elevation-z2"
             (click)="filterSet('2')"
           >
@@ -384,7 +388,11 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [ngClass]="{ active: currentFilter === '3' }"
+            [disabled]="exactFilterFlag == true && currentGroupSize !== 3"
+            [ngClass]="{
+              active: currentFilter === '3',
+              disabled: exactFilterFlag && currentGroupSize !== 3
+            }"
             class="text mat-elevation-z2"
             (click)="filterSet('3')"
           >
@@ -394,7 +402,11 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [ngClass]="{ active: currentFilter === '4' }"
+            [disabled]="exactFilterFlag == true && currentGroupSize !== 4"
+            [ngClass]="{
+              active: currentFilter === '4',
+              disabled: exactFilterFlag && currentGroupSize !== 4
+            }"
             class="text mat-elevation-z2"
             (click)="filterSet('4')"
           >
@@ -404,7 +416,11 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [ngClass]="{ active: currentFilter === '5' }"
+            [disabled]="exactFilterFlag == true && currentGroupSize !== 5"
+            [ngClass]="{
+              active: currentFilter === '5',
+              disabled: exactFilterFlag && currentGroupSize !== 5
+            }"
             class="text mat-elevation-z2"
             (click)="filterSet('5')"
           >

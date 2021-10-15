@@ -55,6 +55,11 @@ th{
   font-weight: bold;
 }
 
+.disabled{
+  opacity: 25%;
+
+}
+
 
 
 

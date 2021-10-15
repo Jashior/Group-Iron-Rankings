@@ -28,6 +28,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   exactFilterFlag = false;
   basePredicate;
   skillSort = 'total';
+  currentGroupSize = 0;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private playerLoadService: PlayerLoadService) {
@@ -93,6 +94,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     const filterValue = '';
     this.resetFilterPredicate();
     this.exactFilterFlag = false;
+    this.currentGroupSize = 0;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
@@ -144,6 +146,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     const filterValue = this.filterText;
     this.exactFilterPredicate();
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.currentGroupSize = this.dataSource.filteredData[0]['groupsize'];
   }
 
   // if clicked on a groupname, searches exactly that name only to get all members:
