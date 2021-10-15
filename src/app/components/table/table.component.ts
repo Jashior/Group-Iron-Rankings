@@ -273,16 +273,14 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.selectedPlayerStats = {};
   }
   showStats(name) {
-    console.log(
-      `Comparing name ${name} with name selected ${this.nameSelected} == ${
-        name == this.nameSelected
-      }`
-    );
-
     if (name == this.nameSelected) {
       this.disablePlayerStatsView();
       return;
     }
+    if (this.exactFilterFlag == true) {
+      this.exactFilterFlag = false;
+    }
+
     this.filterText = name;
     this.playerStatsView = true;
     this.nameSelected = name;
