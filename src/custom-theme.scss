@@ -40,6 +40,7 @@ $light-theme: mat-light-theme((color: (primary: $light-primary,
   --color-offwhite: rgb(252, 252, 252);
   --color-dark: #383737;
   --color-button-selected: #44464d;
+  --color-clickable: #c9caa7;
 
 }
 
@@ -63,6 +64,7 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
   --color-offwhite: rgb(252, 252, 252);
   --color-dark: #383737;
   --color-button-selected: #44464d;
+  --color-clickable: #c9caa7;
 }
 
 // -------------------------------------------------------------- // 
@@ -71,7 +73,7 @@ $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 // ----------------- Typography ----------------- // 
 // Custom typography config
 $heading-font-family: "monospace";
-$custom-typography: mat-typography-config($font-family: 'Roboto Mono, Roboto, monospace, Courier New',
+$custom-typography: mat-typography-config($font-family: 'Roboto, Roboto Mono, monospace, Courier New',
   $headline: mat-typography-level(32px, 48px, 700, $font-family: $heading-font-family),
   $display-2: mat-typography-level(32px, 48px, 700, $font-family: $heading-font-family));
 // Override typography for all Angular Material, including mat-base-typography and all components.

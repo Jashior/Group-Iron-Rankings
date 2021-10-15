@@ -47,6 +47,11 @@ table {
 .group-text:hover{
   color: var(--color-primary);
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.group-text, .name-text{
+  color: var(--color-clickable);
 }
 
 
@@ -141,6 +146,7 @@ th{
   .name-text:hover{
     color: var(--color-primary);
     cursor: pointer;
+    text-decoration: underline;
   }
 /*   
   .mat-row:nth-child(even){
