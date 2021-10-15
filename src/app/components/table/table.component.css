@@ -143,3 +143,13 @@ th{
     cursor: pointer;
   }
   
+  .selectedrow{
+    background-color: red;
+  }
+  .mat-row:nth-child(odd){
+    background-color: #474545;
+}
+
+  .toprow{
+    background-color: var(--color-dark);
+  }

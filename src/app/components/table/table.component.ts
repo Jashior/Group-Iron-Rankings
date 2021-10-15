@@ -1,3 +1,4 @@
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 import { DataSource } from '@angular/cdk/collections';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
@@ -133,7 +134,9 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   // filter the set based on groupsize, if you've clicked on a groupname do EXACT match
   filterSet(size) {
-    this.disablePlayerStatsView();
+    if (this.playerStatsView == false) {
+      this.disablePlayerStatsView();
+    }
     this.currentFilter = size;
     let filtered = [];
     filtered = this.COPY;
@@ -214,7 +217,9 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   sortBy(field) {
-    this.disablePlayerStatsView();
+    if (!this.playerStatsView) {
+      this.disablePlayerStatsView();
+    }
     this.skillSort = field;
     this.loading = true;
     let fieldExp = field + 'Exp';
@@ -278,15 +283,18 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.disablePlayerStatsView();
       return;
     }
+    this.filterText = name;
     this.playerStatsView = true;
     this.nameSelected = name;
     for (let i = 0; i < this.dataSource.filteredData.length; i++) {
       let playerPicked = this.dataSource.filteredData[i];
       if (playerPicked['rsn'] == name) {
+        this.currentGroupSize = playerPicked['groupsize'];
         for (let j = 0; j < this.statsList.length; j++) {
           this.selectedPlayerStats[this.statsList[j]] =
             playerPicked[this.statsList[j]];
         }
+        this.sortBy(this.skillSort);
         return;
       }
     }

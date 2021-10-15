@@ -473,7 +473,9 @@
             [disabled]="exactFilterFlag == true && currentGroupSize !== 2"
             [ngClass]="{
               active: currentFilter === '2',
-              disabled: exactFilterFlag && currentGroupSize !== 2
+              disabled:
+                (exactFilterFlag && currentGroupSize !== 2) ||
+                (playerStatsView && currentGroupSize !== 2)
             }"
             class="text mat-elevation-z2"
             (click)="filterSet('2')"
@@ -487,7 +489,9 @@
             [disabled]="exactFilterFlag == true && currentGroupSize !== 3"
             [ngClass]="{
               active: currentFilter === '3',
-              disabled: exactFilterFlag && currentGroupSize !== 3
+              disabled:
+                (exactFilterFlag && currentGroupSize !== 3) ||
+                (playerStatsView && currentGroupSize !== 3)
             }"
             class="text mat-elevation-z2"
             (click)="filterSet('3')"
@@ -501,7 +505,9 @@
             [disabled]="exactFilterFlag == true && currentGroupSize !== 4"
             [ngClass]="{
               active: currentFilter === '4',
-              disabled: exactFilterFlag && currentGroupSize !== 4
+              disabled:
+                (exactFilterFlag && currentGroupSize !== 4) ||
+                (playerStatsView && currentGroupSize !== 4)
             }"
             class="text mat-elevation-z2"
             (click)="filterSet('4')"
@@ -515,7 +521,9 @@
             [disabled]="exactFilterFlag == true && currentGroupSize !== 5"
             [ngClass]="{
               active: currentFilter === '5',
-              disabled: exactFilterFlag && currentGroupSize !== 5
+              disabled:
+                (exactFilterFlag && currentGroupSize !== 5) ||
+                (playerStatsView && currentGroupSize !== 5)
             }"
             class="text mat-elevation-z2"
             (click)="filterSet('5')"
@@ -921,7 +929,11 @@
           </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-header-row
+          class="toprow"
+          *matHeaderRowDef="displayedColumns"
+        ></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
 
