@@ -180,9 +180,17 @@ export class TableComponent implements OnInit, AfterViewInit {
   // if clicked on a groupname
   filterByGroupName(groupName) {
     this.disablePlayerStatsView();
-    this.filterText = groupName;
+
+    if (groupName == this.filterText) {
+      this.exactFilterFlag = false;
+      this.filterText = '';
+    } else {
+      this.filterText = groupName;
+
+      this.exactFilterPredicate();
+    }
+
     const filterValue = this.filterText;
-    this.exactFilterPredicate();
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.currentGroupSize = this.dataSource.filteredData[0]['groupsize'];
   }
@@ -275,6 +283,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   showStats(name) {
     if (name == this.nameSelected) {
       this.disablePlayerStatsView();
+      this.filterText = '';
+      this.sortBy(this.skillSort);
       return;
     }
     if (this.exactFilterFlag == true) {
