@@ -470,7 +470,10 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [disabled]="exactFilterFlag == true && currentGroupSize !== 2"
+            [disabled]="
+              (exactFilterFlag == true && currentGroupSize !== 2) ||
+              (playerStatsView && currentGroupSize !== 2)
+            "
             [ngClass]="{
               active: currentFilter === '2',
               disabled:
@@ -486,7 +489,10 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [disabled]="exactFilterFlag == true && currentGroupSize !== 3"
+            [disabled]="
+              (exactFilterFlag == true && currentGroupSize !== 3) ||
+              (playerStatsView && currentGroupSize !== 3)
+            "
             [ngClass]="{
               active: currentFilter === '3',
               disabled:
@@ -502,7 +508,10 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [disabled]="exactFilterFlag == true && currentGroupSize !== 4"
+            [disabled]="
+              (exactFilterFlag == true && currentGroupSize !== 4) ||
+              (playerStatsView && currentGroupSize !== 4)
+            "
             [ngClass]="{
               active: currentFilter === '4',
               disabled:
@@ -518,7 +527,10 @@
         <div class="col-2">
           <button
             mat-stroked-button
-            [disabled]="exactFilterFlag == true && currentGroupSize !== 5"
+            [disabled]="
+              (exactFilterFlag == true && currentGroupSize !== 5) ||
+              (playerStatsView && currentGroupSize !== 5)
+            "
             [ngClass]="{
               active: currentFilter === '5',
               disabled:
@@ -549,7 +561,7 @@
       </div>
       <table *ngIf="!loading" mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef>no.</th>
+          <th mat-header-cell *matHeaderCellDef>Rank.</th>
           <td mat-cell *matCellDef="let player">
             {{ player.position }}
           </td>
@@ -557,7 +569,7 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="rsn">
-          <th mat-header-cell *matHeaderCellDef>rsn</th>
+          <th mat-header-cell *matHeaderCellDef>RSN</th>
           <td mat-cell *matCellDef="let player">
             <span
               class="name-text"
@@ -573,336 +585,336 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="total">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.total }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="totalexp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.totalexp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Attack">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Attack }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="AttackExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.AttackExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Strength">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Strength }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="StrengthExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.StrengthExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Defence">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Defence }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="DefenceExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.DefenceExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Hitpoints">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Hitpoints }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="HitpointsExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.HitpointsExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Prayer">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Hitpoints }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="PrayerExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.PrayerExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Magic">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Magic }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="MagicExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.MagicExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Ranged">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Ranged }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="RangedExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.RangedExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Runecraft">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Runecraft }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="RunecraftExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.RunecraftExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Construction">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Construction }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="ConstructionExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.ConstructionExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Agility">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Agility }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="AgilityExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.AgilityExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Herblore">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Herblore }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="HerbloreExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.HerbloreExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Thieving">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Thieving }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="ThievingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.ThievingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Crafting">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Crafting }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="CraftingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.CraftingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Fletching">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Fletching }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="FletchingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.FletchingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Slayer">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Slayer }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="SlayerExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.SlayerExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Hunter">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Hunter }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="HunterExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.HunterExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Mining">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Mining }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="MiningExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.MiningExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Smithing">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Smithing }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="SmithingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.SmithingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Fishing">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Fishing }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="FishingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.FishingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Cooking">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Cooking }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="CookingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.CookingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Firemaking">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Firemaking }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="FiremakingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.FiremakingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Woodcutting">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Woodcutting }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="WoodcuttingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.WoodcuttingExp.toLocaleString("en") }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="Farming">
-          <th mat-header-cell *matHeaderCellDef>level</th>
+          <th mat-header-cell *matHeaderCellDef>Level</th>
           <td mat-cell *matCellDef="let player">
             {{ player.Farming }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="FarmingExp" class="expTable">
-          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <th mat-header-cell *matHeaderCellDef>XP</th>
           <td mat-cell *matCellDef="let player">
             {{ player.FarmingExp.toLocaleString("en") }}
           </td>
@@ -910,7 +922,7 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="groupname">
-          <th mat-header-cell *matHeaderCellDef>group</th>
+          <th mat-header-cell *matHeaderCellDef>Group</th>
           <td mat-cell *matCellDef="let player">
             <span
               class="group-text"
@@ -923,7 +935,7 @@
 
         <!-- Position Column -->
         <ng-container *ngIf="currentFilter == 'ALL'" matColumnDef="groupsize">
-          <th mat-header-cell *matHeaderCellDef>size</th>
+          <th mat-header-cell *matHeaderCellDef>Size</th>
           <td mat-cell *matCellDef="let player">
             {{ player.groupsize }}
           </td>
@@ -941,6 +953,7 @@
         [pageSizeOptions]="[10, 25, 100]"
         showFirstLastButtons
         aria-label="Select page of players"
+        class="bottomrow"
       >
       </mat-paginator>
     </div>

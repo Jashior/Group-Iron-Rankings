@@ -53,7 +53,6 @@ table {
 
 th{
   color: white !important;
-  font-weight: bold;
 }
 
 .disabled{
@@ -126,7 +125,8 @@ th{
     border: 1px var(--color-background) solid;
   }
   .activeskill{
-    border: 1px var(--color-primary) solid;
+    /* border: 1px var(--color-primary) solid; */
+    background-color: var(--color-button-selected);
   }
   .skill-container{
 
@@ -142,14 +142,11 @@ th{
     color: var(--color-primary);
     cursor: pointer;
   }
-  
-  .selectedrow{
-    background-color: red;
-  }
-  .mat-row:nth-child(odd){
-    background-color: #474545;
-}
+/*   
+  .mat-row:nth-child(even){
+    background-color: #494848;
+} */
 
-  .toprow{
+  .toprow, .bottomrow{
     background-color: var(--color-dark);
   }
