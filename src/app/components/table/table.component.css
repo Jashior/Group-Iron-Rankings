@@ -65,7 +65,9 @@ th{
 
 }
 
-
+.mat-row:hover {
+  background-color: #525151;
+}
 
 
 
