@@ -100,13 +100,13 @@ export class TableComponent implements OnInit, AfterViewInit {
   filterSet(size) {
     this.currentFilter = size;
     let filtered = [];
+    filtered = this.COPY;
 
     if (size == 'ALL') {
       // add size column if ALL size
       if (this.displayedColumns.indexOf('groupsize') == -1) {
         this.displayedColumns = [...this.displayedColumns, 'groupsize'];
       }
-      filtered = this.COPY;
     } else {
       // remove size column if filtered size
       this.displayedColumns = this.displayedColumns.filter(
@@ -114,7 +114,7 @@ export class TableComponent implements OnInit, AfterViewInit {
       );
 
       let n = Number(size);
-      filtered = this.COPY.filter((player) => {
+      filtered = filtered.filter((player) => {
         if (player.groupsize == n) {
           return { ...player };
         }
@@ -124,6 +124,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < filtered.length; i++) {
       filtered[i].position = i + 1;
     }
+
     this.dataSource = new MatTableDataSource(filtered);
     this.dataSource.paginator = this.paginator;
     // Incase search text is still in box
@@ -177,7 +178,6 @@ export class TableComponent implements OnInit, AfterViewInit {
   sortBy(field) {
     this.skillSort = field;
     this.loading = true;
-    console.log(`Sorting by ${field}`);
     let fieldExp = field + 'Exp';
     if (field == 'total') {
       fieldExp = field + 'exp';
@@ -199,15 +199,17 @@ export class TableComponent implements OnInit, AfterViewInit {
       ];
     } else {
       this.displayedColumns = ['position', 'rsn', field, fieldExp, 'groupname'];
+
+      filtered = filtered.filter((player) => {
+        if (player.groupsize == this.currentFilter) {
+          return { ...player };
+        }
+      });
     }
 
-    // for (let i = 0; i < this.GIM_DATA.length; i++) {
-    //   filtered[i].position = i + 1;
-    // }
     for (let i = 0; i < filtered.length; i++) {
       filtered[i].position = i + 1;
     }
-
     this.dataSource = new MatTableDataSource(filtered);
     this.basePredicate = this.createFilter();
 

@@ -50,30 +50,50 @@ table {
 }
 
 
-
-.mat-column-position{
-  width: 10% !important;
-}
-.mat-column-rsn {
-  width: 30% !important;
-}
-
-.mat-column-totalexp, .mat-column-AttackExp, .mat-column-StrengthExp {
-  width: 15% !important;
-} 
-.mat-column-total, .mat-column-Attack, .mat-column-Strength {
-  width: 10% !important;
-} 
-
-.mat-column-group{
+th{
+  color: white !important;
+  font-weight: bold;
 }
 
 
 
+
+
+
+@media screen and (min-width: 768px){
+  /* .mat-column-position{
+    width: 10% !important;
+    min-width: 10% !important;
+  }
+  .mat-column-rsn {
+    width: 20% !important;
+    min-width: 20% !important;
+
+  }
+  .mat-column-expTable{
+    width: 15% !important;
+    min-width: 15% !important;
+
+  }
+  .mat-column-groupname{
+    width: 25% !important;
+    min-width: 25% !important;
+
+  } */
+  table {
+    table-layout: fixed;
+  }
+  th, td {
+    overflow: hidden;
+    width: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
 
 
 @media screen and (max-width: 767px) {
-  .mat-column-position{
+  /* .mat-column-position{
     width: 15% !important;
   }
   .mat-column-groupname{
@@ -81,14 +101,13 @@ table {
   }
   
   .mat-column-rsn {
-    max-width: 10% !important;
+    max-width: 30% !important;
   }
 
-  .mat-column-total{
-    width: 10%;
-  }
-  
-  }
+  .expTable{
+    width: 15%;
+  } */
+}
 
   .skill{
     background-color: var(--color-background);
@@ -101,8 +120,12 @@ table {
     border: 1px var(--color-background) solid;
   }
   .activeskill{
-    border: 1px var(--color-offwhite) solid;
+    border: 1px var(--color-primary) solid;
   }
   .skill-container{
 
+  }
+  
+  .groupselected{
+    color: var(--color-primary)
   }
