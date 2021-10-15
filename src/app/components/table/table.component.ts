@@ -27,15 +27,24 @@ export class TableComponent implements OnInit, AfterViewInit {
   filterText = '';
   exactFilterFlag = false;
   basePredicate;
+  skillSort = 'total';
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private playerLoadService: PlayerLoadService) {
     this.loading = true;
-    console.log(this.playerLoadService.testMessage());
     this.playerLoadService.getPlayers().subscribe((data: []) => {
       this.GIM_DATA = data;
-      this.GIM_DATA = this.GIM_DATA.sort((a, b) => b.total - a.total);
-
+      this.GIM_DATA = this.GIM_DATA.sort(
+        (a, b) => b.total - a.total || b.totalexp - a.totalexp
+      );
+      this.displayedColumns = [
+        'position',
+        'rsn',
+        'total',
+        'totalexp',
+        'groupname',
+        'groupsize',
+      ];
       for (let i = 0; i < this.GIM_DATA.length; i++) {
         this.GIM_DATA[i].position = i + 1;
       }
@@ -91,20 +100,18 @@ export class TableComponent implements OnInit, AfterViewInit {
   filterSet(size) {
     this.currentFilter = size;
     let filtered = [];
+
     if (size == 'ALL') {
       // add size column if ALL size
-      this.displayedColumns = [
-        'position',
-        'rsn',
-        'total',
-        'groupname',
-        'groupsize',
-      ];
-
+      if (this.displayedColumns.indexOf('groupsize') == -1) {
+        this.displayedColumns = [...this.displayedColumns, 'groupsize'];
+      }
       filtered = this.COPY;
     } else {
       // remove size column if filtered size
-      this.displayedColumns = ['position', 'rsn', 'total', 'groupname'];
+      this.displayedColumns = this.displayedColumns.filter(
+        (x) => x !== 'groupsize'
+      );
 
       let n = Number(size);
       filtered = this.COPY.filter((player) => {
@@ -165,5 +172,52 @@ export class TableComponent implements OnInit, AfterViewInit {
     };
 
     return filterFunction;
+  }
+
+  sortBy(field) {
+    this.skillSort = field;
+    this.loading = true;
+    console.log(`Sorting by ${field}`);
+    let fieldExp = field + 'Exp';
+    if (field == 'total') {
+      fieldExp = field + 'exp';
+    }
+
+    let filtered = this.COPY;
+    filtered = filtered.sort(
+      (a, b) => b[field] - a[field] || b[fieldExp] - a[fieldExp]
+    );
+
+    if (this.currentFilter == 'ALL') {
+      this.displayedColumns = [
+        'position',
+        'rsn',
+        field,
+        fieldExp,
+        'groupname',
+        'groupsize',
+      ];
+    } else {
+      this.displayedColumns = ['position', 'rsn', field, fieldExp, 'groupname'];
+    }
+
+    // for (let i = 0; i < this.GIM_DATA.length; i++) {
+    //   filtered[i].position = i + 1;
+    // }
+    for (let i = 0; i < filtered.length; i++) {
+      filtered[i].position = i + 1;
+    }
+
+    this.dataSource = new MatTableDataSource(filtered);
+    this.basePredicate = this.createFilter();
+
+    if (this.exactFilterFlag) {
+      this.exactFilterPredicate();
+    }
+
+    const filterValue = this.filterText;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.paginator = this.paginator;
+    this.loading = false;
   }
 }

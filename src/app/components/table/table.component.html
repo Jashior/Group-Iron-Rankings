@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row top-container">
+  <div class="row search-container">
     <div class="col col-lg-3"></div>
     <div class="col-lg-6 col-sm-12 center-text">
       <!-- <br />
@@ -34,7 +34,329 @@
     <div class="col col-lg-3"></div>
   </div>
 
-  <div class="row">
+  <div class="row skills-filter-container">
+    <div class="col col-lg-3"></div>
+    <div class="col-lg-6 col-sm-12 center-text">
+      <div class="row">
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'total' }"
+            (click)="sortBy('total')"
+            mat-button
+          >
+            <img
+              src="../../../assets/overall.png"
+              class="skillicon"
+              alt="Overall"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Attack' }"
+            mat-button
+            (click)="sortBy('Attack')"
+          >
+            <img
+              src="../../../assets/attack.png"
+              class="skillicon"
+              alt="Attack"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Strength' }"
+            mat-button
+            (click)="sortBy('Strength')"
+          >
+            <img
+              src="../../../assets/strength.png"
+              class="skillicon"
+              alt="Strength"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Defence' }"
+            mat-button
+            (click)="sortBy('Defence')"
+          >
+            <img
+              src="../../../assets/defence.png"
+              class="skillicon"
+              alt="Defence"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Hitpoints' }"
+            mat-button
+            (click)="sortBy('Hitpoints')"
+          >
+            <img
+              src="../../../assets/hitpoints.png"
+              class="skillicon"
+              alt="Hitpoints"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Prayer' }"
+            mat-button
+            (click)="sortBy('Prayer')"
+          >
+            <img
+              src="../../../assets/prayer.png"
+              class="skillicon"
+              alt="Prayer"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'magic' }"
+            (click)="sortBy('Magic')"
+            mat-button
+          >
+            <img
+              src="../../../assets/magic.png"
+              class="skillicon"
+              alt="Overall"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Ranged' }"
+            mat-button
+            (click)="sortBy('Ranged')"
+          >
+            <img
+              src="../../../assets/ranged.png"
+              class="skillicon"
+              alt="Ranged"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Runecraft' }"
+            mat-button
+            (click)="sortBy('Runecraft')"
+          >
+            <img
+              src="../../../assets/runecraft.png"
+              class="skillicon"
+              alt="Runecraft"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Construction' }"
+            mat-button
+            (click)="sortBy('Construction')"
+          >
+            <img
+              src="../../../assets/construction.png"
+              class="skillicon"
+              alt="Construction"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Agility' }"
+            mat-button
+            (click)="sortBy('Agility')"
+          >
+            <img
+              src="../../../assets/agility.png"
+              class="skillicon"
+              alt="Agility"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Herblore' }"
+            mat-button
+            (click)="sortBy('Herblore')"
+          >
+            <img
+              src="../../../assets/herblore.png"
+              class="skillicon"
+              alt="Herblore"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Thieving' }"
+            mat-button
+            (click)="sortBy('Thieving')"
+          >
+            <img
+              src="../../../assets/thieving.png"
+              class="skillicon"
+              alt="Thieving"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Crafting' }"
+            mat-button
+            (click)="sortBy('Crafting')"
+          >
+            <img
+              src="../../../assets/crafting.png"
+              class="skillicon"
+              alt="Crafting"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Fletching' }"
+            mat-button
+            (click)="sortBy('Fletching')"
+          >
+            <img
+              src="../../../assets/fletching.png"
+              class="skillicon"
+              alt="Fletching"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Slayer' }"
+            mat-button
+            (click)="sortBy('Slayer')"
+          >
+            <img
+              src="../../../assets/slayer.png"
+              class="skillicon"
+              alt="Slayer"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Hunter' }"
+            mat-button
+            (click)="sortBy('Hunter')"
+          >
+            <img
+              src="../../../assets/hunter.png"
+              class="skillicon"
+              alt="Hunter"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Mining' }"
+            mat-button
+            (click)="sortBy('Mining')"
+          >
+            <img
+              src="../../../assets/mining.png"
+              class="skillicon"
+              alt="Mining"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Smithing' }"
+            mat-button
+            (click)="sortBy('Smithing')"
+          >
+            <img
+              src="../../../assets/smithing.png"
+              class="skillicon"
+              alt="Smithing"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Fishing' }"
+            mat-button
+            (click)="sortBy('Fishing')"
+          >
+            <img
+              src="../../../assets/fishing.png"
+              class="skillicon"
+              alt="Fishing"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Cooking' }"
+            mat-button
+            (click)="sortBy('Cooking')"
+          >
+            <img
+              src="../../../assets/cooking.png"
+              class="skillicon"
+              alt="Cooking"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Firemaking' }"
+            mat-button
+            (click)="sortBy('Firemaking')"
+          >
+            <img
+              src="../../../assets/firemaking.png"
+              class="skillicon"
+              alt="Firemaking"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Woodcutting' }"
+            mat-button
+            (click)="sortBy('Woodcutting')"
+          >
+            <img
+              src="../../../assets/woodcutting.png"
+              class="skillicon"
+              alt="Woodcutting"
+          /></a>
+        </div>
+        <div class="col-lg-2 col-3 skill-container">
+          <a
+            class="text skill-button"
+            [ngClass]="{ activeskill: skillSort == 'Farming' }"
+            mat-button
+            (click)="sortBy('Farming')"
+          >
+            <img
+              src="../../../assets/farming.png"
+              class="skillicon"
+              alt="Farming"
+          /></a>
+        </div>
+      </div>
+      <br />
+      <div class="col col-lg-3"></div>
+    </div>
+  </div>
+
+  <div class="row groupsize-filter-contaner">
     <div class="col-3"></div>
     <div class="col-lg-6 col-sm-12">
       <div class="row">
@@ -100,14 +422,14 @@
   </div>
 
   <div class="row">
-    <div class="col-3"></div>
-    <div class="col-lg-6 col-sm-12 mat-elevation-z5 table-wrapper">
+    <div class="col-2"></div>
+    <div class="col-lg-8 col-sm-12 mat-elevation-z5 table-wrapper">
       <div *ngIf="loading" class="spinner-wrapper">
         <mat-spinner>Loading...</mat-spinner>
       </div>
       <table *ngIf="!loading" mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <th mat-header-cell *matHeaderCellDef>no.</th>
           <td mat-cell *matCellDef="let player">
             {{ player.position }}
           </td>
@@ -115,7 +437,7 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="rsn">
-          <th mat-header-cell *matHeaderCellDef>RSN</th>
+          <th mat-header-cell *matHeaderCellDef>rsn</th>
           <td mat-cell *matCellDef="let player">
             {{ player.rsn }}
           </td>
@@ -123,15 +445,344 @@
 
         <!-- Position Column -->
         <ng-container matColumnDef="total">
-          <th mat-header-cell *matHeaderCellDef>Total level</th>
+          <th mat-header-cell *matHeaderCellDef>total</th>
           <td mat-cell *matCellDef="let player">
             {{ player.total }}
           </td>
         </ng-container>
 
+        <ng-container matColumnDef="totalexp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.totalexp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Attack">
+          <th mat-header-cell *matHeaderCellDef>attack</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Attack }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="AttackExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.AttackExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Strength">
+          <th mat-header-cell *matHeaderCellDef>strength</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Strength }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="StrengthExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.StrengthExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Defence">
+          <th mat-header-cell *matHeaderCellDef>defence</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Defence }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DefenceExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.DefenceExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Hitpoints">
+          <th mat-header-cell *matHeaderCellDef>hitpoints</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Hitpoints }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HitpointsExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.HitpointsExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Prayer">
+          <th mat-header-cell *matHeaderCellDef>prayer</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Hitpoints }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PrayerExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.PrayerExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Magic">
+          <th mat-header-cell *matHeaderCellDef>mage</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Magic }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="MagicExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.MagicExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Ranged">
+          <th mat-header-cell *matHeaderCellDef>ranged</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Ranged }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="RangedExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.RangedExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Runecraft">
+          <th mat-header-cell *matHeaderCellDef>runecraft</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Runecraft }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="RunecraftExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.RunecraftExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Construction">
+          <th mat-header-cell *matHeaderCellDef>construction</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Construction }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ConstructionExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.ConstructionExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Agility">
+          <th mat-header-cell *matHeaderCellDef>agility</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Agility }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="AgilityExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.AgilityExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Herblore">
+          <th mat-header-cell *matHeaderCellDef>herblore</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Herblore }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HerbloreExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.HerbloreExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Thieving">
+          <th mat-header-cell *matHeaderCellDef>thieving</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Thieving }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ThievingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.ThievingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Crafting">
+          <th mat-header-cell *matHeaderCellDef>crafting</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Crafting }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="CraftingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.CraftingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Fletching">
+          <th mat-header-cell *matHeaderCellDef>fletching</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Fletching }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FletchingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.FletchingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Slayer">
+          <th mat-header-cell *matHeaderCellDef>slayer</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Slayer }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="SlayerExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.SlayerExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Hunter">
+          <th mat-header-cell *matHeaderCellDef>hunter</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Hunter }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HunterExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.HunterExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Mining">
+          <th mat-header-cell *matHeaderCellDef>mining</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Mining }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="MiningExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.MiningExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Smithing">
+          <th mat-header-cell *matHeaderCellDef>smithing</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Smithing }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="SmithingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.SmithingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Fishing">
+          <th mat-header-cell *matHeaderCellDef>fishing</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Fishing }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FishingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.FishingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Cooking">
+          <th mat-header-cell *matHeaderCellDef>cooking</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Cooking }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="CookingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.CookingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Firemaking">
+          <th mat-header-cell *matHeaderCellDef>firemaking</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Firemaking }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FiremakingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.FiremakingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Woodcutting">
+          <th mat-header-cell *matHeaderCellDef>woodcutting</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Woodcutting }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="WoodcuttingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.WoodcuttingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Farming">
+          <th mat-header-cell *matHeaderCellDef>farming</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.Farming }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="FarmingExp">
+          <th mat-header-cell *matHeaderCellDef>exp contr.</th>
+          <td mat-cell *matCellDef="let player">
+            {{ player.FarmingExp.toLocaleString("en") }}
+          </td>
+        </ng-container>
+
         <!-- Position Column -->
         <ng-container matColumnDef="groupname">
-          <th mat-header-cell *matHeaderCellDef>Group</th>
+          <th mat-header-cell *matHeaderCellDef>group</th>
           <td mat-cell *matCellDef="let player">
             <span
               class="group-text"
@@ -143,7 +794,7 @@
 
         <!-- Position Column -->
         <ng-container *ngIf="currentFilter == 'ALL'" matColumnDef="groupsize">
-          <th mat-header-cell *matHeaderCellDef>Group Size</th>
+          <th mat-header-cell *matHeaderCellDef>group size</th>
           <td mat-cell *matCellDef="let player">
             {{ player.groupsize }}
           </td>
@@ -160,7 +811,7 @@
       >
       </mat-paginator>
     </div>
-    <div class="col-3"></div>
+    <div class="col-2"></div>
   </div>
 
   <div class="row">
@@ -177,5 +828,3 @@
     <div class="col"></div>
   </div>
 </div>
-
-<!-- <button (click)="printer()">FLAG FOR EXACT MATCH</button> -->

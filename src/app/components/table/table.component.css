@@ -49,24 +49,29 @@ table {
   cursor: pointer;
 }
 
+
+
 .mat-column-position{
-  flex: none;
-  width: 5em;
+  width: 10% !important;
 }
-
 .mat-column-rsn {
-  flex: none;
-  width: 15em;
+  width: 30% !important;
 }
 
-.mat-column-total{
-  flex: none;
-  width: 8em;
+.mat-column-totalexp, .mat-column-AttackExp, .mat-column-StrengthExp {
+  width: 15% !important;
+} 
+.mat-column-total, .mat-column-Attack, .mat-column-Strength {
+  width: 10% !important;
+} 
+
+.mat-column-group{
 }
-/* 
-.mat-column-groupname{
-  flex: none;
-} */
+
+
+
+
+
 @media screen and (max-width: 767px) {
   .mat-column-position{
     width: 15% !important;
@@ -76,11 +81,28 @@ table {
   }
   
   .mat-column-rsn {
-    width: 30% !important;
+    max-width: 10% !important;
   }
-  
+
   .mat-column-total{
     width: 10%;
   }
   
+  }
+
+  .skill{
+    background-color: var(--color-background);
+  }
+  .skillicon{
+    max-height: 20px;
+    max-width: 20px;
+  }
+  .skill-button{
+    border: 1px var(--color-background) solid;
+  }
+  .activeskill{
+    border: 1px var(--color-offwhite) solid;
+  }
+  .skill-container{
+
   }

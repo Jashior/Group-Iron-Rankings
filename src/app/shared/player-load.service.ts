@@ -25,7 +25,7 @@ export class PlayerLoadService {
 
   getPlayers = () => {
     console.log(`Geting Players`);
-    let apiURL = 'https://db-learn.herokuapp.com/test/users';
+    let apiURL = 'https://yanille.herokuapp.com/test/users';
     return this.http
       .get<Object>(apiURL, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
