@@ -20,6 +20,33 @@ export class TableComponent implements OnInit, AfterViewInit {
     'groupname',
     'groupsize',
   ];
+  statsList = [
+    'total',
+    'Attack',
+    'Strength',
+    'Defence',
+    'Hitpoints',
+    'Prayer',
+    'Magic',
+    'Ranged',
+    'Runecraft',
+    'Construction',
+    'Agility',
+    'Herblore',
+    'Thieving',
+    'Crafting',
+    'Fletching',
+    'Slayer',
+    'Hunter',
+    'Mining',
+    'Smithing',
+    'Fishing',
+    'Cooking',
+    'Firemaking',
+    'Woodcutting',
+    'Farming',
+  ];
+
   GIM_DATA: any = [{}, {}, {}];
   dataSource = new MatTableDataSource(this.GIM_DATA);
   COPY;
@@ -29,6 +56,10 @@ export class TableComponent implements OnInit, AfterViewInit {
   basePredicate;
   skillSort = 'total';
   currentGroupSize = 0;
+  playerStatsView = false;
+  nameSelected = '';
+  selectedPlayerStats = {};
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private playerLoadService: PlayerLoadService) {
@@ -82,6 +113,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter(event: Event) {
+    this.disablePlayerStatsView();
     const filterValue = (event.target as HTMLInputElement).value;
     this.resetFilterPredicate();
     this.exactFilterFlag = false;
@@ -90,6 +122,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   // on x click reset
   resetTextFilter() {
+    this.disablePlayerStatsView();
     this.filterText = '';
     const filterValue = '';
     this.resetFilterPredicate();
@@ -100,6 +133,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   // filter the set based on groupsize, if you've clicked on a groupname do EXACT match
   filterSet(size) {
+    this.disablePlayerStatsView();
     this.currentFilter = size;
     let filtered = [];
     filtered = this.COPY;
@@ -142,6 +176,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   // if clicked on a groupname
   filterByGroupName(groupName) {
+    this.disablePlayerStatsView();
     this.filterText = groupName;
     const filterValue = this.filterText;
     this.exactFilterPredicate();
@@ -179,6 +214,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   sortBy(field) {
+    this.disablePlayerStatsView();
     this.skillSort = field;
     this.loading = true;
     let fieldExp = field + 'Exp';
@@ -224,5 +260,35 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.dataSource.paginator = this.paginator;
     this.loading = false;
+  }
+
+  disablePlayerStatsView() {
+    this.playerStatsView = false;
+    this.nameSelected = '';
+    this.selectedPlayerStats = {};
+  }
+  showStats(name) {
+    console.log(
+      `Comparing name ${name} with name selected ${this.nameSelected} == ${
+        name == this.nameSelected
+      }`
+    );
+
+    if (name == this.nameSelected) {
+      this.disablePlayerStatsView();
+      return;
+    }
+    this.playerStatsView = true;
+    this.nameSelected = name;
+    for (let i = 0; i < this.dataSource.filteredData.length; i++) {
+      let playerPicked = this.dataSource.filteredData[i];
+      if (playerPicked['rsn'] == name) {
+        for (let j = 0; j < this.statsList.length; j++) {
+          this.selectedPlayerStats[this.statsList[j]] =
+            playerPicked[this.statsList[j]];
+        }
+        return;
+      }
+    }
   }
 }

@@ -50,6 +50,7 @@ table {
 }
 
 
+
 th{
   color: white !important;
   font-weight: bold;
@@ -134,3 +135,11 @@ th{
   .groupselected{
     color: var(--color-primary)
   }
+  .nameselected{
+    color: var(--color-primary);
+  }
+  .name-text:hover{
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+  

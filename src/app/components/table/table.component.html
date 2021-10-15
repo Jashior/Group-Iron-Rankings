@@ -49,7 +49,11 @@
               src="../../../assets/overall.png"
               class="skillicon"
               alt="Overall"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["total"] }}
+            </span>
+          </a>
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -62,7 +66,11 @@
               src="../../../assets/attack.png"
               class="skillicon"
               alt="Attack"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Attack"] }}
+            </span>
+          </a>
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -75,7 +83,11 @@
               src="../../../assets/strength.png"
               class="skillicon"
               alt="Strength"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Strength"] }}
+            </span>
+          </a>
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -88,7 +100,11 @@
               src="../../../assets/defence.png"
               class="skillicon"
               alt="Defence"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Defence"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -101,7 +117,11 @@
               src="../../../assets/hitpoints.png"
               class="skillicon"
               alt="Hitpoints"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Hitpoints"] }}
+            </span>
+          </a>
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -114,7 +134,11 @@
               src="../../../assets/prayer.png"
               class="skillicon"
               alt="Prayer"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Prayer"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -127,7 +151,11 @@
               src="../../../assets/magic.png"
               class="skillicon"
               alt="Overall"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Magic"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -140,7 +168,11 @@
               src="../../../assets/ranged.png"
               class="skillicon"
               alt="Ranged"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Ranged"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -153,7 +185,11 @@
               src="../../../assets/runecraft.png"
               class="skillicon"
               alt="Runecraft"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Runecraft"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -166,7 +202,11 @@
               src="../../../assets/construction.png"
               class="skillicon"
               alt="Construction"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Construction"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -179,7 +219,11 @@
               src="../../../assets/agility.png"
               class="skillicon"
               alt="Agility"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Agility"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -192,7 +236,11 @@
               src="../../../assets/herblore.png"
               class="skillicon"
               alt="Herblore"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Herblore"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -205,7 +253,11 @@
               src="../../../assets/thieving.png"
               class="skillicon"
               alt="Thieving"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Thieving"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -218,7 +270,11 @@
               src="../../../assets/crafting.png"
               class="skillicon"
               alt="Crafting"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Crafting"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -231,7 +287,11 @@
               src="../../../assets/fletching.png"
               class="skillicon"
               alt="Fletching"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Fletching"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -244,7 +304,11 @@
               src="../../../assets/slayer.png"
               class="skillicon"
               alt="Slayer"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Slayer"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -257,7 +321,11 @@
               src="../../../assets/hunter.png"
               class="skillicon"
               alt="Hunter"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Hunter"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -270,7 +338,11 @@
               src="../../../assets/mining.png"
               class="skillicon"
               alt="Mining"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Mining"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -283,7 +355,11 @@
               src="../../../assets/smithing.png"
               class="skillicon"
               alt="Smithing"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Smithing"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -296,7 +372,11 @@
               src="../../../assets/fishing.png"
               class="skillicon"
               alt="Fishing"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Fishing"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -309,7 +389,11 @@
               src="../../../assets/cooking.png"
               class="skillicon"
               alt="Cooking"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Cooking"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -322,7 +406,11 @@
               src="../../../assets/firemaking.png"
               class="skillicon"
               alt="Firemaking"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Firemaking"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -335,7 +423,11 @@
               src="../../../assets/woodcutting.png"
               class="skillicon"
               alt="Woodcutting"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Woodcutting"] }}
+            </span></a
+          >
         </div>
         <div class="col-lg-2 col-3 skill-container">
           <a
@@ -348,7 +440,11 @@
               src="../../../assets/farming.png"
               class="skillicon"
               alt="Farming"
-          /></a>
+            />
+            <span *ngIf="playerStatsView == true" class="statviewnumber">
+              {{ selectedPlayerStats["Farming"] }}
+            </span></a
+          >
         </div>
       </div>
       <br />
@@ -455,7 +551,15 @@
         <ng-container matColumnDef="rsn">
           <th mat-header-cell *matHeaderCellDef>rsn</th>
           <td mat-cell *matCellDef="let player">
-            {{ player.rsn }}
+            <span
+              class="name-text"
+              [ngClass]="{
+                nameselected:
+                  playerStatsView == true && nameSelected == player.rsn
+              }"
+              (click)="showStats(player.rsn)"
+              >{{ player.rsn }}</span
+            >
           </td>
         </ng-container>
 
