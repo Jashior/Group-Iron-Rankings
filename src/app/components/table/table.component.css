@@ -15,8 +15,9 @@ table {
     color: var(--color-offwhite)
   }
   .search-text{
-    color: var(--color-offwhite)
+    color: var(--color-offwhite);
   }
+
 .center-text{
       text-align: center;
   }
