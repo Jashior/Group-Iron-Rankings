@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { hasLifecycleHook } from '@angular/compiler/src/lifecycle_reflector';
+import data from '../../assets/users.js';
 
 @Injectable({
   providedIn: 'root',
@@ -25,10 +26,13 @@ export class PlayerLoadService {
 
   getPlayers = () => {
     console.log(`Loading Players`);
-    let apiURL = 'https://yanille2.herokuapp.com/test/users';
-    return this.http
-      .get<Object>(apiURL, this.httpOptions)
-      .pipe(retry(1), catchError(this.handleError));
+    // let apiURL = 'https://yanille2.herokuapp.com/test/users';
+    const sourceObservable = of(data);
+    const delayedObservable = sourceObservable.pipe(delay(100));
+    return delayedObservable;
+    // return this.http
+    //   .get<Object>(apiURL, this.httpOptions)
+    //   .pipe(retry(1), catchError(this.handleError));
   };
 
   // Error handling

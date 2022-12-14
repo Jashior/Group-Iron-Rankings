@@ -964,8 +964,10 @@
     <div class="col"></div>
     <div class="col-lg-6 col-sm-12 center-text text small">
       <br />
-      Update attempt every 6 hours, Last updated:
-      <span class="primary">{{ GIM_DATA[0].updated_at | date: "medium" }}</span>
+      **No longer updated/maintained**, Last updated:
+      <span class="primary">{{
+        GIM_DATA[0].updated_at | date : "medium"
+      }}</span>
       (~{{ GIM_DATA[0].updated_at | dateAgo }})
       <br />
       Only included if your group is within the top 200 overall for their group
