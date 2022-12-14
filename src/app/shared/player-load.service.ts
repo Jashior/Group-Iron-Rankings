@@ -4,7 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import data from '../../assets/users.js';
+import userData from '../../assets/data.js';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,10 @@ export class PlayerLoadService {
   getPlayers = () => {
     console.log(`Loading Players`);
     // let apiURL = 'https://yanille2.herokuapp.com/test/users';
-    const sourceObservable = of(data);
+    // let apiURL =
+    //   'https://raw.githubusercontent.com/SaintJuniper/Group-Iron-Data/7535eae08fd8025d876e15e7d73f0b7115313107/users.json';
+    console.log(userData);
+    const sourceObservable = of(userData);
     const delayedObservable = sourceObservable.pipe(delay(100));
     return delayedObservable;
     // return this.http
